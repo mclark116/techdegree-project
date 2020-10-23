@@ -10,10 +10,6 @@ def welcome():
     ____________________________________
     """)
     
-#have game stop adding up tries with each new game
-#have game pick new number for each new game instead of keeping the old one
-
-
 def start_game():
     another = "y"
     solution = random.randint(1,10)
@@ -45,26 +41,27 @@ def start_game():
                     print("\nGot it! It took you {} try!".format(attempt))
                 else:
                     print("\nGot it! It took you {} tries!".format(attempt))
-                    print("Game Over!")
-                    history.append(attempt)
-                    solution = random.randint(1,10)
-                    attempt = 0
-                    another = input("Would you like to play again? y/n ")
-                    if another.lower()=="y":
-                        print("\nHigh Score: {}".format(min(history)))
-                    elif another.lower()!="y":
-                        if another.lower()=="n":
-                            print("\nGame Over! Thanks for playing.")
-                            break
-                        else:
-                            while another.lower !="y" or "n":
-                                print("Please choose y or n")
-                                another = input("Would you like to play again? y/n ")  
-                                if another.lower()=="y":
-                                    print("\nHigh Score: {}".format(min(history)))
+                print("Game Over!")
+                history.append(attempt)
+                solution = random.randint(1,10)
+                attempt = 0
+                another = input("Would you like to play again? y/n ")
+                if another.lower()=="y":
+                    print("\nHigh Score: {}".format(min(history)))
+                elif another.lower()!="y":
+                    if another.lower()=="n":
+                        print("\nGame Over! Thanks for playing.")
+                        break
+                    else:
+                        while another.lower !="y" or "n":
+                            print("Please choose y or n")
+                            another = input("Would you like to play again? y/n ")  
+                            if another.lower()=="y":
+                                print("\nHigh Score: {}".format(min(history)))
+                                break
+                            elif another.lower()!="y":
+                                if another.lower()=="n":
                                     break
-                                elif another.lower()!="y":
-                                    if another.lower()=="n":
-                                        break
+
 welcome()
 start_game()
